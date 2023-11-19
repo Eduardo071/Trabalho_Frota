@@ -81,8 +81,7 @@ int main(void) {
     else if (resp == 3)
       adicionarFornecedor();
     else if (resp == 4)
-      msg_em_desenvolvimento();
-    // listar_clientes();
+      cadastrar_motorista();
     else if (resp == 5)
       cadastrar_produto();
     else if (resp == 6)
@@ -98,7 +97,7 @@ int main(void) {
     else if (resp == 10)
       msg_em_desenvolvimento();
     else if (resp == 11)
-      msg_em_desenvolvimento();
+      listar_motorista();
     else if (resp == 12)
       listar_produtos();
     else if (resp == 13)
