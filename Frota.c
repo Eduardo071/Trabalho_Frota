@@ -79,8 +79,7 @@ int main(void) {
       exibirMenu();
     // cadastrar_cliente();
     else if (resp == 3)
-      msg_em_desenvolvimento();
-    // listar_filmes();
+      adicionarFornecedor();
     else if (resp == 4)
       msg_em_desenvolvimento();
     // listar_clientes();
