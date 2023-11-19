@@ -1,12 +1,12 @@
-// testa se o sistema é Windows, pois o "cls" funciona somente no Windows,
-// senão utiliza o "clear" que é o comando para limpar a tela no Linux
+// testa se o sistema ï¿½ Windows, pois o "cls" funciona somente no Windows,
+// senï¿½o utiliza o "clear" que ï¿½ o comando para limpar a tela no Linux
 #ifdef __WIN32
 #define limpar_tela "cls"
 #else
 #define limpar_tela "clear"
 #endif
 
-// inclusão de bibliotecas
+// inclusï¿½o de bibliotecas
 #include "cadastrocliente.h"
 #include "cadastromotorista.h"
 #include "contasareceber.h"
@@ -19,11 +19,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-// definição da struct empresa
+// definiï¿½ï¿½o da struct empresa
 typedef struct empresa {
   // campos da struct empresa
   int icodigo;
-  char sTipo_Pessoa[1]; // F-Física / J-Jurídica
+  char sTipo_Pessoa[1]; // F-Fï¿½sica / J-Jurï¿½dica
   char sRazao_Scial[100];
   char sFantasia[100];
   char sCNPJ_CPF[14];
@@ -43,14 +43,14 @@ typedef struct empresa {
   char sRegime_Tributario[50];
   char sEmail[100];
   char sSite[50];
-  char sAtivo[1]; // S - Sim / N - Não
+  char sAtivo[1]; // S - Sim / N - Nï¿½o
 } st_empresa;
 
-// protótipos de funções
+// protï¿½tipos de funï¿½ï¿½es
 
 /**
- * Exibe o menu com todas as opções do programa
- * retorno: um caractere do número correspondente a opção
+ * Exibe o menu com todas as opï¿½ï¿½es do programa
+ * retorno: um caractere do nï¿½mero correspondente a opï¿½ï¿½o
  */
 char menu();
 
@@ -68,7 +68,7 @@ int main(void) {
 
   // loop infinito do programa
   while (1) {
-    // obtém a escolha do usu rio
+    // obtï¿½m a escolha do usu rio
     resp = menu();
 
     // testa o valor de "resp"
@@ -85,8 +85,7 @@ int main(void) {
       msg_em_desenvolvimento();
     // listar_clientes();
     else if (resp == 5)
-      msg_em_desenvolvimento();
-    // pesquisar_filme();
+      cadastrar_produto();
     else if (resp == 6)
       gerenciarContas();
     else if (resp == 7)
@@ -102,18 +101,18 @@ int main(void) {
     else if (resp == 11)
       msg_em_desenvolvimento();
     else if (resp == 12)
-      msg_em_desenvolvimento();
+      listar_produtos();
     else if (resp == 13)
       msg_em_desenvolvimento();
     else if (resp == 14)
       msg_em_desenvolvimento();
-    else if (resp == 0) // se for igual a 0, então sai do loop while
+    else if (resp == 0) // se for igual a 0, entï¿½o sai do loop while
       return 0;
     else {
       printf("\nOpcao invalida! Pressione <Enter> para continuar...");
       scanf("%*c");
       // uma forma de "limpar" o buffer de entrada
-      fseek(stdin, 0, SEEK_END); // não recomendável o uso
+      fseek(stdin, 0, SEEK_END); // nï¿½o recomendï¿½vel o uso
     }
     // system(limpar_tela);
   }
@@ -121,36 +120,36 @@ int main(void) {
   return 0;
 }
 
-// fun  o que exibe o menu e retorna a opção escolhida pelo usu rio
+// fun  o que exibe o menu e retorna a opï¿½ï¿½o escolhida pelo usu rio
 char menu() {
   int resp;
 
   printf("\n--[ KNOWLEDGE System Solutions  "
          "]-------------------------------------------");
-  printf("\n--[ Sistema de Gestão de Frotas "
+  printf("\n--[ Sistema de Gestï¿½o de Frotas "
          "]-------------------------------------------");
   printf("\n\n 1 - Cadastrar Empresas\n");
   printf(" 2 - Cadastrar Clientes\n");
   printf(" 3 - Cadastrar Fornecedores\n");
   printf(" 4 - Cadastrar Motoristas\n");
   printf(" 5 - Cadastrar Produtos\n");
-  printf(" 6 - Cadastrar Lançamentos a Pagar\n");
-  printf(" 7 - Cadastrar Lançamentos a Receber\n");
+  printf(" 6 - Cadastrar Lanï¿½amentos a Pagar\n");
+  printf(" 7 - Cadastrar Lanï¿½amentos a Receber\n");
   printf(" 8 - Listar todas as Empresas\n");
   printf(" 9 - Listar todos os Clientes\n");
   printf("10 - Listar todos os Fornecedores\n");
   printf("11 - Listar todos os Motoristas\n");
   printf("12 - Listar todos os Produtos\n");
-  printf("13 - Listar todos os Lançamentos a Pagar\n");
-  printf("14 - Listar todos os Lançamentos a Receber\n");
+  printf("13 - Listar todos os Lanï¿½amentos a Pagar\n");
+  printf("14 - Listar todos os Lanï¿½amentos a Receber\n");
   printf(" 0 - Sair\n");
   printf("\nDigite o numero da opcao: ");
   scanf("%d", &resp); // o *c pega o Enter e descarta
 
   // uma forma de "limpar" o buffer de entrada
-  fseek(stdin, 0, SEEK_END); // não recomendável o uso
+  fseek(stdin, 0, SEEK_END); // nï¿½o recomendï¿½vel o uso
 
-  // se chegou aqui, é porque a opção   válida
+  // se chegou aqui, ï¿½ porque a opï¿½ï¿½o   vï¿½lida
   return resp;
 }
 
@@ -169,42 +168,42 @@ void cadastrar_empresa() {
   }
 
   /*
-          NÃO é interessante que o usuário digite o Código da empresa, esse
-          Código tem que ser gerado automático, então temos que pegar o
-          Código da última empresa cadastrada
+          Nï¿½O ï¿½ interessante que o usuï¿½rio digite o Cï¿½digo da empresa, esse
+          Cï¿½digo tem que ser gerado automï¿½tico, entï¿½o temos que pegar o
+          Cï¿½digo da ï¿½ltima empresa cadastrada
   */
   int cont_bytes = 0;
 
-  // cont_bytes irá guardar o n mero total de bytes
+  // cont_bytes irï¿½ guardar o n mero total de bytes
   // seta o ponteiro do arquivo para o final do arquivo
   fseek(arq_empresa, 0, SEEK_END);
 
-  // pegamos a quantidade de bytes com a função ftell
+  // pegamos a quantidade de bytes com a funï¿½ï¿½o ftell
   cont_bytes = ftell(arq_empresa);
 
   st_empresa empresa;
 
   if (cont_bytes == 0) {
-    // se for 0, então não existe empresa cadastrada
-    // coloca o Código começando de 1
+    // se for 0, entï¿½o nï¿½o existe empresa cadastrada
+    // coloca o Cï¿½digo comeï¿½ando de 1
     empresa.icodigo = 1;
   } else {
     st_empresa ultima_empresa;
 
-    // utiliza a função fseek para posicionar o arquivo
+    // utiliza a funï¿½ï¿½o fseek para posicionar o arquivo
     // cont_bytes - sizeof(st_empresa) serve para posicionar
-    // para que possamos pegar o código da última empresa cadastrada
+    // para que possamos pegar o cï¿½digo da ï¿½ltima empresa cadastrada
     fseek(arq_empresa, cont_bytes - sizeof(st_empresa), SEEK_SET);
 
     // ler os dados da empresa
     fread(&ultima_empresa, sizeof(st_empresa), 1, arq_empresa);
 
-    // o Código da empresa é o código da última empresa acrescido em 1
+    // o Cï¿½digo da empresa ï¿½ o cï¿½digo da ï¿½ltima empresa acrescido em 1
     empresa.icodigo = ultima_empresa.icodigo + 1;
   }
 
-  // obtém o nome da empresa
-  // ^\n indica para pegar até a quebra de linha (enter)
+  // obtï¿½m o nome da empresa
+  // ^\n indica para pegar atï¿½ a quebra de linha (enter)
   // %*c descarta o enter
   printf("\nTipo de pessoa (F - F sica / J - Jur dica): ");
   scanf("%99[^\n]%*c", empresa.sTipo_Pessoa);
@@ -212,9 +211,9 @@ void cadastrar_empresa() {
   printf("\nRaz o Social: ");
   scanf("%99[^\n]%*c", empresa.sRazao_Scial);
 
-  fseek(stdin, 0, SEEK_END); // não recomend vel o uso
+  fseek(stdin, 0, SEEK_END); // nï¿½o recomend vel o uso
 
-  // se o ponteiro não estiver no final do arquivo nada é escrito
+  // se o ponteiro nï¿½o estiver no final do arquivo nada ï¿½ escrito
   fseek(arq_empresa, 0, SEEK_END);
   // escreve no arquivo
   fwrite(&empresa, sizeof(st_empresa), 1, arq_empresa);
@@ -247,6 +246,6 @@ void cadastrar_empresa() {
   */
 
   // uma forma de "limpar" o buffer de entrada
-  fseek(stdin, 0, SEEK_END); // não recomendável o uso
+  fseek(stdin, 0, SEEK_END); // nï¿½o recomendï¿½vel o uso
 }
 //---------------------------------------------------------
