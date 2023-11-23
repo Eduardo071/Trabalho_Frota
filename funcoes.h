@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 
 int multiplica(int N1, int N2)
 {
